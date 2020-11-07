@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="FragmentMenuBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.example.mvvm_kotlin_example.ui.menu.MenuViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        app:layoutDescription="@xml/fr_menu_scene"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            app:layout_constraintBottom_toTopOf="@id/btn2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/action_adventure"
+            android:onClick="@{vm.onClickListener}"
+            />
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toTopOf="@id/btn3"
+            app:layout_constraintTop_toBottomOf="@id/btn1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/animation"
+            android:onClick="@{vm.onClickListener}"
+            />
+
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toTopOf="@id/btn4"
+            app:layout_constraintTop_toBottomOf="@id/btn2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/classic"
+            android:onClick="@{vm.onClickListener}"
+            />
+
+        <Button
+            android:id="@+id/btn4"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toTopOf="@id/btn5"
+            app:layout_constraintTop_toBottomOf="@id/btn3"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/comedy"
+            android:onClick="@{vm.onClickListener}"
+            />
+
+        <Button
+            android:id="@+id/btn5"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toTopOf="@id/btn6"
+            app:layout_constraintTop_toBottomOf="@id/btn4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/drama"
+            android:onClick="@{vm.onClickListener}"
+            />
+
+        <Button
+            android:id="@+id/btn6"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toTopOf="@id/btn7"
+            app:layout_constraintTop_toBottomOf="@id/btn5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/horror"
+            android:onClick="@{vm.onClickListener}"
+            />
+
+        <Button
+            android:id="@+id/btn7"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toTopOf="@id/btn8"
+            app:layout_constraintTop_toBottomOf="@id/btn6"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/family"
+            android:onClick="@{vm.onClickListener}"
+            />
+
+        <Button
+            android:id="@+id/btn8"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toTopOf="@id/btn9"
+            app:layout_constraintTop_toBottomOf="@id/btn7"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/mystery"
+            android:onClick="@{vm.onClickListener}"
+            />
+
+        <Button
+            android:id="@+id/btn9"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toTopOf="@id/btn10"
+            app:layout_constraintTop_toBottomOf="@id/btn8"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/scifi_fantasy"
+            android:onClick="@{vm.onClickListener}"
+            />
+
+        <Button
+            android:id="@+id/btn10"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn9"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/western"
+            android:onClick="@{vm.onClickListener}"
+            />
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+</layout>

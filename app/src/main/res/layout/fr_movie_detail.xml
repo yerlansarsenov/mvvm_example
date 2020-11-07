@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="MovieDetailBinding">
+        <import type="android.view.View"/>
+
+        <import
+            alias="BC"
+            type="com.example.mvvm_kotlin_example.BuildConfig"/>
+
+        <variable
+            name="vm"
+            type="com.example.mvvm_kotlin_example.ui.movie_detail.MovieDetailViewModel" />
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/view_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            changeBack='@{vm._liveData.movie_results.size() != 0 ? BC.IMAGE_BASE_URL + vm._liveData.movie_results.get(0).backdrop_path : ""}'
+            >
+
+            <FrameLayout
+                android:id="@+id/frame_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@id/adapt_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/image_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:layout_margin="10dp"
+                    imageUrlWithPic='@{vm._liveData.movie_results.size() != 0 ? BC.IMAGE_BASE_URL + vm._liveData.movie_results.get(0).poster_path : ""}'
+                    />
+
+                <RatingBar
+                    android:id="@+id/rate_view_detail"
+                    android:theme="@style/FilmRatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="25dp"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:stepSize="0.01"
+                    rateIt='@{vm._liveData.movie_results.size() != 0 ? vm._liveData.movie_results.get(0).vote_average : 0}'
+                    />
+
+                <TextView
+                    android:id="@+id/title_view_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginBottom="70dp"
+                    android:background="#0e000000"
+                    android:textColor="#fff"
+                    android:textSize="25sp"
+                    android:text='@{vm._liveData.movie_results.size() != 0 ? vm._liveData.movie_results.get(0).original_title : ""}'
+                    />
+
+                <TextView
+                    android:id="@+id/relies_view_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginBottom="25dp"
+                    android:background="#0e000000"
+                    android:textColor="#fff"
+                    android:textSize="25sp"
+                    android:text='@{vm._liveData.movie_results.size() != 0 ? vm.liveData.movie_results.get(0).release_date : ""}'
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:textSize="25sp"
+                    android:textColor="#FF0000"
+                    android:background="#0e000000"
+                    android:text="@string/_18"
+                    android:visibility='@{vm._liveData.movie_results.size() != 0 ? vm._liveData.movie_results.get(0).adult ? View.VISIBLE : View.GONE : View.GONE}'
+                    />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/adapt_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@id/over_detail"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/frame_detail"
+                android:textSize="23sp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="10dp"
+                android:gravity="center_horizontal"
+                android:textColor="#FFF"
+                android:background="#0e000000"
+                android:text='@{vm._liveData.movie_results.size() != 0 ? vm._liveData.movie_results.get(0).original_title : ""}'
+                />
+
+            <TextView
+                android:id="@+id/over_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="10dp"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/adapt_title"
+                android:background="#0e000000"
+                android:text='@{vm._liveData.movie_results.size() != 0 ? vm._liveData.movie_results.get(0).overview : ""}'
+                />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

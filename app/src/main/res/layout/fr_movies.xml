@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data class="MoviesBinding">
+        <import type="android.view.View"/>
+        <variable
+            name="vm"
+            type="com.example.mvvm_kotlin_example.ui.movies.MovieListViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_movies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{!vm._isError ? View.VISIBLE : View.GONE}"
+            />
+        <include
+            layout="@layout/v_error"
+            android:visibility="@{vm._isError ? View.VISIBLE : View.GONE}"
+            />
+        <!--        <TextView-->
+<!--            android:text="@{vm.liveData.get(0).title}"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="25sp"-->
+<!--            />-->
+
+
+    </LinearLayout>
+
+</layout>

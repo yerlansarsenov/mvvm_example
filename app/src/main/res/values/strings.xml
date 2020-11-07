@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">mvvm_kotlin_example</string>
+    <string name="action_adventure">action-adventure</string>
+    <string name="animation">animation</string>
+    <string name="classic">classic</string>
+    <string name="comedy">comedy</string>
+    <string name="drama">drama</string>
+    <string name="horror">horror</string>
+    <string name="family">family</string>
+    <string name="mystery">mystery</string>
+    <string name="scifi_fantasy">scifi-fantasy</string>
+    <string name="western">western</string>
+    <string name="went_wrong">Something went wrong. Please, retry</string>
+    <string name="_18">+18</string>
+</resources>

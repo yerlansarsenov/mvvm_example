@@ -13,7 +13,7 @@ class ApiKeyInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         var request : Request = chain.request()
         val httpUrl: HttpUrl = request.url.newBuilder()
-            .addQueryParameter("api_key", BuildConfig.API_KEY)
+            .addQueryParameter("api_key", ApiKey.api_key)
             .addQueryParameter("external_source", "imdb_id")
             .build()
         request = request.newBuilder().url(httpUrl).build()
